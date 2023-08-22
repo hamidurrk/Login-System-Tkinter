@@ -3,14 +3,12 @@ import tkinter.messagebox
 import customtkinter
 import time
 
-customtkinter.set_appearance_mode("Dark")  # Modes: "System" (standard), "Dark", "Light"
-customtkinter.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", "dark-blue"
-
-
-class App(customtkinter.CTk):
+class Home(customtkinter.CTkToplevel):
     def __init__(self):
         super().__init__()
 
+        customtkinter.set_appearance_mode("Dark")  # Modes: "System" (standard), "Dark", "Light"
+        customtkinter.set_default_color_theme("dark-blue")  # Themes: "blue" (standard), "green", "dark-blue"
         # configure window
         self.title("CustomTkinter complex_example.py")
         self.geometry(f"{1100}x{580}")
@@ -167,5 +165,5 @@ class App(customtkinter.CTk):
 
 
 if __name__ == "__main__":
-    app = App()
+    app = Home()
     app.mainloop()

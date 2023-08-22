@@ -1,6 +1,7 @@
 import customtkinter as ctk
 from ctypes import windll, byref, sizeof, c_int
 import pywinstyles
+from home import Home
 
 # ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("green")
@@ -47,27 +48,28 @@ app.geometry("450x500")
 # title_bar.bind('<B1-Motion>', move_window)
 
 
-# app.title("Login Interface")
+app.title("Login Interface")
 
-# def login():
-#     print("Testing login")
+def open_home():
+    app.toplevel_window = Home()  # create window if its None or destroyed
+    app.withdraw()
 
-# frame = ctk.CTkFrame(master=app)
-# frame.pack(pady=20, padx=60, fill="both", expand=True)
+frame = ctk.CTkFrame(master=app)
+frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-# label = ctk.CTkLabel(master=frame, text="Login System", font=("Roboto", 24))
-# label.pack(pady=20, padx=10)
+label = ctk.CTkLabel(master=frame, text="Login System", font=("Roboto", 24))
+label.pack(pady=20, padx=10)
 
-# entry1 = ctk.CTkEntry(master=frame, placeholder_text="Username")
-# entry1.pack(pady=12, padx=10)
+entry1 = ctk.CTkEntry(master=frame, placeholder_text="Username")
+entry1.pack(pady=12, padx=10)
 
-# entry2 = ctk.CTkEntry(master=frame, placeholder_text="Password", show="*")
-# entry2.pack(pady=12, padx=10)
+entry2 = ctk.CTkEntry(master=frame, placeholder_text="Password", show="*")
+entry2.pack(pady=12, padx=10)
 
-# button = ctk.CTkButton(master=frame, text="Login", command=login)
-# button.pack(pady=12, padx=10)
+button = ctk.CTkButton(master=frame, text="Login", command=open_home)
+button.pack(pady=12, padx=10)
 
-# checkbox = ctk.CTkCheckBox(master=frame, text="Remember me")
-# checkbox.pack(pady=12, padx=10)
+checkbox = ctk.CTkCheckBox(master=frame, text="Remember me")
+checkbox.pack(pady=12, padx=10)
 
 app.mainloop()
